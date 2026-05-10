@@ -7,4 +7,4 @@ Currently it can throw DnD dice in discord channels! :)
 Commands:
 
 !help : Shows a short manual.\
-!d \<number> : number is the sides of the dice you want to throw. Gives you an error if the number of sides don't match allowed tabletop dice.
+!d \<number> : number is the number of sides of the dice you want to throw. Gives you an error if the number of sides don't match allowed tabletop dice.

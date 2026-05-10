@@ -8,7 +8,7 @@ from constants import VALID_DICE
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
-
+# Prints a message to the cli upon going online on Discord.
 @bot.event
 async def on_ready():
     print("Hello! SushiCatBot is ready! o7")
@@ -22,7 +22,7 @@ async def add(ctx, *arr):
         result += int(i)
     await ctx.send(str(result))
 
-
+# Subtracts two numbers.
 @bot.command()
 async def sub(ctx, *arr):
     result = 0
@@ -30,15 +30,7 @@ async def sub(ctx, *arr):
         result -= int(i)
     await ctx.send(str(result))
 
-
-@bot.command()
-async def on_member_join(self, member):
-    guild = member.guild
-    if guild.system_channel is not None:
-        to_send = f'Welcome {member.mention} to {guild.name}!'
-        await guild.system_channel.send(to_send)
-
-
+# Rolls a tabletop dice with comnmand: !d <roll>. Checks for valid dice.
 @bot.command()
 async def d(ctx, *arr):
     roll = int(arr[0])

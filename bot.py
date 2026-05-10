@@ -2,7 +2,7 @@ import discord
 import array
 from discord.ext import commands
 import random
-from bot_token import BOT_TOKEN
+from bot_token import BOT_TOKEN #File in .gitignore
 from constants import VALID_DICE
 
 

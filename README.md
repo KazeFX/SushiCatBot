@@ -6,4 +6,4 @@ Currently it can throw DnD dice in discord channels! :)
 
 Commands:
 
-!d4 !d6 !d8 !d10 !d00 !d12 !d20
+!d 4 !d 6 !d 8 !d 10 !d 00 !d 12 !d 20

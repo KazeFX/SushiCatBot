@@ -1,8 +1,7 @@
 import discord
-import array
 from discord.ext import commands
 import random
-from bot_token import BOT_TOKEN # File in .gitignore
+from bot_token import BOT_TOKEN # Keep this in .gitignore
 from constants import VALID_DICE
 
 
@@ -30,7 +29,7 @@ async def sub(ctx, *arr):
         result -= int(i)
     await ctx.send(str(result))
 
-# Rolls a tabletop dice with comnmand: !d <roll>. Checks for valid dice.
+# Rolls a tabletop dice with command: !d <roll>. Checks for valid dice.
 @bot.command()
 async def d(ctx, *arr):
     roll = int(arr[0])

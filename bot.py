@@ -4,6 +4,8 @@ import random
 from bot_token import BOT_TOKEN # Keep this in .gitignore
 from constants import VALID_DICE
 
+intents = discord.Intents.default()
+intents.members = True   # REQUIRED to receive member join events
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
@@ -11,6 +13,16 @@ bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 @bot.event
 async def on_ready():
     print("Hello! SushiCatBot is ready! o7")
+
+# Prints a welcome message to new members joining the sever; in a channel called welcome.
+@bot.event
+async def on_member_join(member):
+    channel_name = "welcome"  # replace with your channel name
+
+    for ch in member.guild.text_channels:
+        if ch.name == channel_name:
+            await ch.send(f"Welcome {member.mention}!")
+            break
 
 
 # Adds two number together.
@@ -29,7 +41,7 @@ async def sub(ctx, *arr):
         result -= int(i)
     await ctx.send(str(result))
 
-lol
+
 
 # Rolls a tabletop dice with command: !d <roll>. Checks for valid dice.
 @bot.command()

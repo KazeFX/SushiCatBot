@@ -29,6 +29,8 @@ async def sub(ctx, *arr):
         result -= int(i)
     await ctx.send(str(result))
 
+lol
+
 # Rolls a tabletop dice with command: !d <roll>. Checks for valid dice.
 @bot.command()
 async def d(ctx, *arr):

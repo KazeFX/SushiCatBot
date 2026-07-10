@@ -21,7 +21,7 @@ async def on_member_join(member):
 
     for ch in member.guild.text_channels:
         if ch.name == channel_name:
-            await ch.send(f"Welcome {member.mention}!")
+            await ch.send(f"Welcome {member.mention} !")
             break
 
 
@@ -41,31 +41,38 @@ async def sub(ctx, *arr):
         result -= int(i)
     await ctx.send(str(result))
 
-
-
-# Rolls a tabletop dice with command: !d <roll>. Checks for valid dice.
+# Simple MMO loot roll.
 @bot.command()
-async def d(ctx, *arr):
-    roll = int(arr[0])
+async def loot(ctx):
+    result = random.randint(1, 100)
+    await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
 
-    if roll not in VALID_DICE:
-        await ctx.send("Not a valid dice!")
-        return
+# Rolls a tabletop dice with command: !d<roll>. Checks for valid dice.
+@bot.event
+async def on_message(message):
+    content = message.content
+    if content.startswith("!d"):
+        arg = content[2:]
+        roll = int(arg)
 
-    elif roll == 00:
-        result = random.randint(1, 100)
-        await ctx.send(f"ᕕ( ᐛ )ᕗ You rolled **{result}%** !")
-        return
+        if roll not in VALID_DICE:
+            await message.channel.send("Not a valid dice!")
+            return
 
-    else:
-        result = random.randint(1, roll)
+        elif roll == 00:
+            result = random.randint(1, 100)
+            await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled **{result}%** !")
+            return
 
-        if result == roll:
-            await ctx.send(f"ᕕ( ᐛ )ᕗ You rolled a natural **{result}** !!!")
-        elif result == 1:
-            await ctx.send(f"ᕕ( ᐛ )ᕗ You rolled a natural **{result}**.. :(")
         else:
-            await ctx.send(f"ᕕ( ᐛ )ᕗ You rolled **{result}** !")
-        return
+            result = random.randint(1, roll)
+
+            if result == roll:
+                await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled a natural **{result}** !!!")
+            elif result == 1:
+                await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled a natural **{result}**.. :(")
+            else:
+                await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled **{result}** !")
+            return
 
 bot.run(BOT_TOKEN)

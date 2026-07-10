@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import random
+import database
 from bot_token import BOT_TOKEN # Keep this in .gitignore
 from constants import VALID_DICE
 

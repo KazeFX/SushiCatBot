@@ -35,6 +35,28 @@ async def loot(ctx):
     await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
 
 
+# Register a name and birthday and connect it to a discord user id.
+@bot.command()
+async def register(ctx, name: str, birthday: str):
+    database.add_user(ctx.author.id, name, birthday)
+    await ctx.send(f"Saved {name} with birthday {birthday}")
+
+
+# Prints in the channel, the saved information about the user calling the command.
+@bot.command()
+async def profile(ctx, member: discord.Member = None):
+    member = member or ctx.author
+
+    row = database.get_user(member.id)
+
+    if row:
+        await ctx.send(
+            f"User: {row['name']}\nBirthday: {row['birthday']}"
+        )
+    else:
+        await ctx.send("No data found for this user!")
+
+
 # Rolls a tabletop dice with command: !d<roll>. Checks for valid dice.
 @bot.event
 async def on_message(message):
@@ -62,5 +84,6 @@ async def on_message(message):
             else:
                 await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled **{result}** !")
             return
+    await bot.process_commands(message)
 
 bot.run(BOT_TOKEN)

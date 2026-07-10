@@ -7,17 +7,18 @@ def get_db():
     conn.row_factory = sqlite3.Row
     return conn
 
-def add_user(user_id: int, name: str, birthday: DateTime):
+def add_user(user_id: int, name: str, birthday: str):
     conn = get_db()
     cursor = conn.cursor()
 
     cursor.execute("""
-        INSERT OR REPLACE INTO users (user_id, name, birthday))
+        INSERT OR REPLACE INTO users (user_id, name, birthday)
         VALUES (?, ?, ?)
     """, (user_id, name, birthday))
 
     conn.commit()
     conn.close()
+
 
 def get_user(user_id: int):
     conn = get_db()

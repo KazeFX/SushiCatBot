@@ -10,10 +10,12 @@ intents.members = True   # REQUIRED to receive member join events
 
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
+
 # Prints a message to the cli upon going online on Discord.
 @bot.event
 async def on_ready():
     print("Hello! SushiCatBot is ready! o7")
+
 
 # Prints a welcome message to new members joining the sever; in a channel called welcome.
 @bot.event
@@ -26,27 +28,12 @@ async def on_member_join(member):
             break
 
 
-# Adds two number together.
-@bot.command()
-async def add(ctx, *arr):
-    result = 0
-    for i in arr:
-        result += int(i)
-    await ctx.send(str(result))
-
-# Subtracts two numbers.
-@bot.command()
-async def sub(ctx, *arr):
-    result = 0
-    for i in arr:
-        result -= int(i)
-    await ctx.send(str(result))
-
 # Simple MMO loot roll.
 @bot.command()
 async def loot(ctx):
     result = random.randint(1, 100)
     await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
+
 
 # Rolls a tabletop dice with command: !d<roll>. Checks for valid dice.
 @bot.event

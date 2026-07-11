@@ -1,5 +1,5 @@
+import datetime
 import sqlite3
-from xmlrpc.client import DateTime
 
 
 def get_db():
@@ -29,3 +29,14 @@ def get_user(user_id: int):
 
     conn.close()
     return row
+
+def delete_user(user_id: int):
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM users WHERE user_id = ?", (user_id,))
+    conn.commit()
+
+def birthday(user_id: int):
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT user_id, birthday FROM birthdays WHERE birthday = ?", (datetime.datetime.now(),))

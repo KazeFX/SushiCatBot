@@ -1,8 +1,10 @@
+import datetime
+
 import discord
-from discord.ext import commands
+from discord.ext import commands, tasks
 import random
 import database
-from bot_token import BOT_TOKEN # Keep this in .gitignore
+from bot_token import BOT_TOKEN, BIRTHDAY_MESSAGE_CHANNEL_ID # Keep this in .gitignore
 from constants import VALID_DICE
 
 intents = discord.Intents.default()
@@ -32,15 +34,22 @@ async def on_member_join(member):
 @bot.command()
 async def loot(ctx):
     result = random.randint(1, 100)
-    await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
+    if result == 100:
+        await ctx.send(f"OMG!! {ctx.author.mention} rolled **{result}** !!")
+    else:
+        await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
 
 
 # Register a name and birthday and connect it to a discord user id.
 @bot.command()
-async def register(ctx, name: str, birthday: str):
+async def bday(ctx, name: str, birthday: str):
     database.add_user(ctx.author.id, name, birthday)
     await ctx.send(f"Saved {name} with birthday {birthday}")
 
+@bot.command()
+async def unregister(ctx):
+    database.delete_user(ctx.author.id)
+    await ctx.send(f"Removed {ctx.author.mention} from the database.")
 
 # Prints in the channel, the saved information about the user calling the command.
 @bot.command()
@@ -55,6 +64,19 @@ async def profile(ctx, member: discord.Member = None):
         )
     else:
         await ctx.send("No data found for this user!")
+
+
+# @tasks.loop(time=datetime.time(hour=9, minute=0))
+# async def birthday_check():
+#     """Runs every day at 09:00 server time."""
+#     today = datetime.datetime.now().strftime("%m-%d")
+#     channel = bot.get_channel(BIRTHDAY_MESSAGE_CHANNEL_ID)
+#
+#
+#     for user_id, bday in birthdays.items():
+#         if bday == today:
+#             user = await bot.fetch_user(user_id)
+#             await channel.send(f"Happy Birthday, {user.mention}! 🎂")
 
 
 # Rolls a tabletop dice with command: !d<roll>. Checks for valid dice.

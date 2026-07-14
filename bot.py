@@ -73,6 +73,14 @@ async def profile(ctx, member: discord.Member = None):
         await ctx.send("No data found for this user!")
 
 
+# Adds slowmode to a channel given amount of seconds as the command argument
+@bot.command()
+@commands.has_permissions(manage_channels=True)
+async def slowmode(ctx, seconds: int):
+    await ctx.channel.edit(slowmode_delay=seconds)
+    await ctx.send(f"Slow mode set to {seconds} seconds.")
+
+
 # Bot task that runs every minute, checks birthdays at 09:00 every day and prints out a birthday message in
 # the channel specified in BIRTHDAY_MESSAGE_CHANNEL_ID
 @tasks.loop(minutes=1)

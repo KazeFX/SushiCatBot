@@ -1,10 +1,29 @@
-# SushiCatBot
+# ~ SushiCatBot ~
 
 A Python Discord Bot
 
-Currently it can throw DnD dice in discord channels! :)
+**Commands:**
 
-Commands:
+**!help** : Shows a short manual in the current discord channel.
 
-!help : Shows a short manual.\
-!d \<number> : number is the number of sides of the dice you want to throw. Gives you an error if the number of sides don't match allowed tabletop dice.
+**!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
+
+**!register <name> <birthday>(E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
+
+**!unregister** : Removes the user calling the command, from the database.
+
+**!profile** : Shows the name and birthday registered by the user calling the command.
+
+**!d4** : Throws a 4-sided dice.
+
+**!d6** : Throws a 6-sided dice.
+
+**!d8** : Throws an 8-sided dice.
+
+**!d10** : Throws a 10-sided dice.
+
+**!d12** : Throws a 12-sided dice.
+
+**!d20** : Throws a 20-sided dice.
+
+**!d00** : Throws a percentage dice.

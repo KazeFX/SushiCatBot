@@ -8,7 +8,7 @@ A Python Discord Bot
 
 **!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
 
-**!register <name> <birthday>(E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
+**!register name birthday (E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
 
 **!unregister** : Removes the user calling the command, from the database.
 

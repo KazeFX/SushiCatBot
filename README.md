@@ -18,7 +18,7 @@ Get the bot token by setting up your own discord app at https://discord.com/deve
 
 **Commands:**
 
-**!help** : Shows a short manual in the current discord channel.
+**!help** : Prints a link to this repo.
 
 **!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
 

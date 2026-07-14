@@ -1,13 +1,13 @@
 import sqlite3
 
-# Grabs the database. Duh. :D
+# Grabs the database. Duh :D
 def get_db():
     conn = sqlite3.connect("bot.db")
     conn.row_factory = sqlite3.Row
     return conn
 
 
-# Adds a user and birthday to the database.
+# Adds a user and birthday to the database
 def add_user(user_id: int, name: str, birthday: str):
     conn = get_db()
     cursor = conn.cursor()
@@ -19,7 +19,7 @@ def add_user(user_id: int, name: str, birthday: str):
     conn.close()
 
 
-# Gets the user name and birthday from the database.
+# Gets the user name and birthday from the database
 def get_user(user_id: int):
     conn = get_db()
     cursor = conn.cursor()
@@ -29,7 +29,7 @@ def get_user(user_id: int):
     return row
 
 
-# Deletes a user row from the database specified by user_id.
+# Deletes a user row from the database specified by user_id
 def delete_user(user_id: int):
     conn = get_db()
     cursor = conn.cursor()
@@ -37,7 +37,7 @@ def delete_user(user_id: int):
     conn.commit()
 
 
-# Grabs birthdays that match todays date in month and day. Ignores year.
+# Grabs birthdays that match todays date in month and day. Ignores year
 def get_birthdays_today():
     conn = get_db()
     cursor = conn.cursor()

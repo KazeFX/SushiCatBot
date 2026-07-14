@@ -12,7 +12,7 @@ intents.members = True   # REQUIRED to receive member join events
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 bot.help_command = None
 
-# Prints a message to the cli upon going online on Discord.
+# Prints a message to the cli upon going online on Discord
 @bot.event
 async def on_ready():
     print("Hello! SushiCatBot is ready! o7")
@@ -20,7 +20,7 @@ async def on_ready():
     print("Birthday task started.")
 
 
-# Prints a welcome message to new members joining the sever; in a channel called welcome.
+# Prints a welcome message to new members joining the sever; in a channel called welcome
 @bot.event
 async def on_member_join(member):
     channel_name = "welcome"  # replace with your channel name
@@ -30,13 +30,13 @@ async def on_member_join(member):
             break
 
 
-# Posts a link to the bot github with instructions and commands.
+# Posts a link to the bot github with instructions and commands
 @bot.command()
 async def help(ctx):
     await ctx.send(f"Bot manual can be find at: https://github.com/KazeFX/SushiCatBot")
 
 
-# Simple MMO loot roll.
+# Simple MMO loot roll
 @bot.command()
 async def loot(ctx):
     result = random.randint(1, 100)
@@ -46,21 +46,21 @@ async def loot(ctx):
         await ctx.send(f"{ctx.author.mention} rolled **{result}** !")
 
 
-# Register a name and birthday and connect it to a discord user id.
+# Register a name and birthday and connect it to a discord user id
 @bot.command()
 async def register(ctx, name: str, birthday: str):
     database_helper.add_user(ctx.author.id, name, birthday)
     await ctx.send(f"Saved {name} with birthday {birthday}")
 
 
-# Deletes the user from the database; that runs the command.
+# Deletes the user from the database; that runs the command
 @bot.command()
 async def unregister(ctx):
     database_helper.delete_user(ctx.author.id)
     await ctx.send(f"Removed {ctx.author.mention} from the database.")
 
 
-# Prints in the channel, the saved information about the user calling the command.
+# Prints in the channel, the saved information about the user calling the command
 @bot.command()
 async def profile(ctx, member: discord.Member = None):
     member = member or ctx.author
@@ -74,7 +74,7 @@ async def profile(ctx, member: discord.Member = None):
 
 
 # Bot task that runs every minute, checks birthdays at 09:00 every day and prints out a birthday message in
-# the channel specified in BIRTHDAY_MESSAGE_CHANNEL_ID.
+# the channel specified in BIRTHDAY_MESSAGE_CHANNEL_ID
 @tasks.loop(minutes=1)
 async def birthday_check():
     now = datetime.datetime.now()
@@ -88,7 +88,7 @@ async def birthday_check():
             await channel.send(f"🎉 Happy Birthday, {user.mention}! 🎂")
 
 
-# Rolls a tabletop dice with command: !d<roll>. Checks for valid dice.
+# Rolls a tabletop dice with command: !d<roll>. Checks for valid dice
 @bot.event
 async def on_message(message):
     content = message.content

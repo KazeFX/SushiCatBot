@@ -103,14 +103,14 @@ async def weather(ctx, city: str):
 @tasks.loop(minutes=1)
 async def birthday_check():
     now = datetime.datetime.now()
-    if now.hour == 9 and now.minute == 0: # Run at specific time, here 09:00
+    if now.hour == 9 and now.minute == 0: # Run at specific time. E.g. 09:00
         birthdays = database_helper.get_birthdays_today()
         if not birthdays:
             return
         channel = bot.get_channel(BIRTHDAY_MESSAGE_CHANNEL_ID)
         for user_id, bday in birthdays:
             user = await bot.fetch_user(user_id)
-            await channel.send(f"🎉 Happy Birthday, {user.mention}! 🎂")
+            await channel.send(f"🥳 Happy Birthday, {user.mention}! 🎂")
 
 
 # Rolls a tabletop dice with command: !d<roll>. Checks for valid dice

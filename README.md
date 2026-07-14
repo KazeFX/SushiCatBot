@@ -8,13 +8,13 @@ https://discordpy.readthedocs.io/en/stable/
 
 Python3: https://www.python.org/downloads/
 
-SQLite3: https://sqlite.org/
-
 **Startup:**
 
 Run **init.py** to set up the bot and initialise the database. You need to add your own bot token to the BOT_TOKEN.py file. Also add the channel id of the channel you want the birthday messages to be printed in.
 
 Get the bot token by setting up your own discord app at https://discord.com/developers
+
+For the weather command, you need an API key from https://openweathermap.org/
 
 **Commands:**
 
@@ -27,6 +27,10 @@ Get the bot token by setting up your own discord app at https://discord.com/deve
 **!unregister** : Removes the user calling the command, from the database.
 
 **!profile** : Shows the name and birthday registered by the user calling the command.
+
+**!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.
+
+**!weather location** : Prints out the weather and condition for the provided location.
 
 **!d4** : Throws a 4-sided dice.
 

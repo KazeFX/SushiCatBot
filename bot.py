@@ -33,7 +33,7 @@ async def on_member_join(member):
 # Posts a link to the bot github with instructions and commands
 @bot.command()
 async def help(ctx):
-    await ctx.send(f"Bot manual can be find at: https://github.com/KazeFX/SushiCatBot")
+    await ctx.send(f"Bot manual can be found at: https://github.com/KazeFX/SushiCatBot")
 
 
 # Simple MMO loot roll

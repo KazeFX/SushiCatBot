@@ -10,7 +10,7 @@ from constants import VALID_DICE
 intents = discord.Intents.default()
 intents.members = True   # REQUIRED to receive member join events
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
-
+bot.help_command = None
 
 # Prints a message to the cli upon going online on Discord.
 @bot.event
@@ -28,6 +28,12 @@ async def on_member_join(member):
         if ch.name == channel_name:
             await ch.send(f"Welcome {member.mention} !")
             break
+
+
+# Posts a link to the bot github with instructions and commands.
+@bot.command()
+async def help(ctx):
+    await ctx.send(f"Bot manual can be find at: https://github.com/KazeFX/SushiCatBot")
 
 
 # Simple MMO loot roll.

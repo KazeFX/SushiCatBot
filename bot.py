@@ -4,7 +4,7 @@ from discord.ext import commands, tasks
 import random
 import requests
 import database_helper
-from api_tokens import BOT_TOKEN, BIRTHDAY_MESSAGE_CHANNEL_ID, OPEN_WEATHER_API_KEY # Keep this in .gitignore
+from api_tokens import BOT_TOKEN, BIRTHDAY_MESSAGE_CHANNEL_ID, OPEN_WEATHER_API_KEY, BOT_TRAP_CHANNEL_ID # Keep this in .gitignore
 from constants import VALID_DICE
 
 
@@ -95,7 +95,7 @@ async def weather(ctx, city: str):
     data = response.json()
     temp = float(data["main"]["temp"])
     desc = data["weather"][0]["description"]
-    await ctx.send(f"The temperature in {city} is {temp:.1f}°C with {desc}")
+    await ctx.send(f"The temperature in {city} is {temp:.1f}°C with {desc}!")
 
 
 # Bot task that runs every minute, checks birthdays at 09:00 every day and prints out a birthday message in
@@ -136,6 +136,17 @@ async def on_message(message):
             else:
                 await message.channel.send(f"ᕕ( ᐛ )ᕗ {message.author.mention} rolled **{result}** !")
             return
+
+    # Bot trap section
+    if message.author.bot:
+        return
+    if message.channel.id == BOT_TRAP_CHANNEL_ID:
+            try:
+                await message.author.ban(reason="Posted in restricted channel, probably a bot.")
+                await message.channel.send(f"{message.author} was probably a bot, banned.")
+            except Exception as e:
+                print(f"Failed to ban user: {e}")
+
     await bot.process_commands(message)
 
 

@@ -13,6 +13,7 @@ intents.members = True   # REQUIRED to receive member join events
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 bot.help_command = None
 
+
 # Prints a message to the cli upon going online on Discord
 @bot.event
 async def on_ready():

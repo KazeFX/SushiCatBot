@@ -24,9 +24,9 @@ For the weather command, you need an API key from https://openweathermap.org/
 
 * **!register name birthday (E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
 
-* **!unregister** : Removes the user calling the command, from the database.
+* **!unregister** : Removes the user from the database.
 
-* **!profile** : Shows the name and birthday registered by the user calling the command.
+* **!profile** : Shows the name and birthday registered by the user.
 
 * **!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.
 

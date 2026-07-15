@@ -2,13 +2,13 @@
 
 A Discord Bot using [Discord.py](https://discordpy.readthedocs.io/en/stable/)
 
-──────────────────────────────
+
 
 **Requirments:**
 
 [Python3](https://www.python.org/downloads/)
 
-──────────────────────────────
+
 
 **Startup:**
 
@@ -18,7 +18,7 @@ Get the bot token by setting up your own discord app at https://discord.com/deve
 
 For the weather command, you need an API key from https://openweathermap.org/
 
-──────────────────────────────
+
 
 **Commands:**
 

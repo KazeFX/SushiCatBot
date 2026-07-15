@@ -12,7 +12,7 @@ A Discord Bot using [Discord.py](https://discordpy.readthedocs.io/en/stable/)
 
 **Startup:**
 
-Run **init.py** to set up the bot and initialise the database. You need to add your own bot token to the **api_tokens.py** file. Also add the channel id of the channel you want the birthday messages to be printed in.
+Run **init.py** to set up the bot and initialise the database. You need to add your own bot token to the **api_tokens.py** file. Also add the channel id of the channel you want the birthday messages to be printed in. There is a bot trap function as well where you can add a channel id, and the bot will ban anyone sending a message in that channel.
 
 Get the bot token by setting up your own discord app at https://discord.com/developers
 

@@ -1,6 +1,6 @@
 # ~ SushiCatBot ~
 
-A Python Discord Bot using [Discord.py](https://discordpy.readthedocs.io/en/stable/)
+A Discord Bot using [Discord.py](https://discordpy.readthedocs.io/en/stable/)
 
 ──────────────────────────────
 

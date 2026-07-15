@@ -10,7 +10,7 @@ Python3: https://www.python.org/downloads/
 
 **Startup:**
 
-Run **init.py** to set up the bot and initialise the database. You need to add your own bot token to the BOT_TOKEN.py file. Also add the channel id of the channel you want the birthday messages to be printed in.
+Run **init.py** to set up the bot and initialise the database. You need to add your own bot token to the **api_tokens.py** file. Also add the channel id of the channel you want the birthday messages to be printed in.
 
 Get the bot token by setting up your own discord app at https://discord.com/developers
 

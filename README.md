@@ -4,6 +4,8 @@ A Python Discord Bot using Discord.py
 
 https://discordpy.readthedocs.io/en/stable/
 
+──────────────────────────────
+
 **Requirments:**
 
 Python3: https://www.python.org/downloads/

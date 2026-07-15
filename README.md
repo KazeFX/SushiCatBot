@@ -34,7 +34,7 @@ For the weather command, you need an API key from https://openweathermap.org/
 
 **!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.
 
-**!weather location** : Prints out the weather and condition for the provided location.
+**!weather location** : Prints out the temperature and condition for the provided location.
 
 **!d4** : Throws a 4-sided dice.
 

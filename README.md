@@ -2,13 +2,9 @@
 
 A Discord Bot using [Discord.py](https://discordpy.readthedocs.io/en/stable/)
 
-
-
 **Requirments:**
 
-[Python3](https://www.python.org/downloads/)
-
-
+* [Python3](https://www.python.org/downloads/)
 
 **Startup:**
 
@@ -18,34 +14,34 @@ Get the bot token by setting up your own discord app at https://discord.com/deve
 
 For the weather command, you need an API key from https://openweathermap.org/
 
-
+---
 
 **Commands:**
 
-**!help** : Prints a link to this repo.
+* **!help** : Prints a link to this repo.
 
-**!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
+* **!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
 
-**!register name birthday (E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
+* **!register name birthday (E.g. John 1997-08-29)** : Registers a name and birthday for the user calling the command, and saves it to the database.
 
-**!unregister** : Removes the user calling the command, from the database.
+* **!unregister** : Removes the user calling the command, from the database.
 
-**!profile** : Shows the name and birthday registered by the user calling the command.
+* **!profile** : Shows the name and birthday registered by the user calling the command.
 
-**!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.
+* **!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.
 
-**!weather location** : Prints out the temperature and condition for the provided location.
+* **!weather location** : Prints out the temperature and condition for the provided location.
 
-**!d4** : Throws a 4-sided dice.
+* **!d4** : Throws a 4-sided dice.
 
-**!d6** : Throws a 6-sided dice.
+* **!d6** : Throws a 6-sided dice.
 
-**!d8** : Throws an 8-sided dice.
+* **!d8** : Throws an 8-sided dice.
 
-**!d10** : Throws a 10-sided dice.
+* **!d10** : Throws a 10-sided dice.
 
-**!d12** : Throws a 12-sided dice.
+* **!d12** : Throws a 12-sided dice.
 
-**!d20** : Throws a 20-sided dice.
+* **!d20** : Throws a 20-sided dice.
 
-**!d00** : Throws a percentage dice.
+* **!d00** : Throws a percentage dice.

@@ -35,10 +35,22 @@ async def on_member_join(member):
 # Posts a link to the bot github with instructions and commands
 @bot.command()
 async def help(ctx):
-    await ctx.send(f"**Commands:**\n\n"
-                   f"**!help** - Prints this section. :D\n\n"
-                   f"**!loot** - Does a simple MMO loot roll, giving a number from 1 to and including 100.\n\n"
-                   f"**!register name birthday (E.g. John 1997-08-29)** - Registers a name and birthday for the user, and saves it to the database.\n\n")
+    await ctx.send(f"I sent you a DM with instructions! {ctx.author.mention}")
+    await ctx.author.send(f"**Commands:**\n\n"
+                   f"**!help** : Prints this section. :D\n\n"
+                   f"**!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.\n\n"
+                   f"**!register name birthday (E.g. John 1997-08-29)** : Registers a name and birthday for the user, and saves it to the database.\n\n"
+                   f"**!unregister** : Removes the user from the database.\n\n"
+                   f"**!profile** : Shows the name and birthday registered by the user.\n\n"
+                   f"**!slowmode seconds** : Turns on slow mode for the channel, with the given seconds as the delay.\n\n"
+                   f"**!weather location** : Prints out the temperature and condition for the provided location.\n\n"
+                   f"**!d4** : Throws a 4-sided dice.\n\n"
+                   f"**!d6** : Throws a 6-sided dice.\n\n"
+                   f"**!d8** : Throws an 8-sided dice.\n\n"
+                   f"**!d10** : Throws a 10-sided dice.\n\n"
+                   f"**!d12** : Throws a 12-sided dice.\n\n"
+                   f"**!d20** : Throws a 20-sided dice.\n\n"
+                   f"**!d00** : Throws a percentage dice.\n\n")
 
 
 # Simple MMO loot roll

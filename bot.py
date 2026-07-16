@@ -34,7 +34,10 @@ async def on_member_join(member):
 # Posts a link to the bot github with instructions and commands
 @bot.command()
 async def help(ctx):
-    await ctx.send(f"Bot manual can be found at: https://github.com/KazeFX/SushiCatBot")
+    await ctx.send(f"**Commands:**\n\n"
+                   f"**!help** - Prints this section. :D\n\n"
+                   f"**!loot** - Does a simple MMO loot roll, giving a number from 1 to and including 100.\n\n"
+                   f"**!register name birthday (E.g. John 1997-08-29)** - Registers a name and birthday for the user, and saves it to the database.\n\n")
 
 
 # Simple MMO loot roll

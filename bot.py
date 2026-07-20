@@ -35,7 +35,7 @@ async def on_member_join(member):
 # Posts a link to the bot github with instructions and commands
 @bot.command()
 async def help(ctx):
-    await ctx.send(f"I sent you a DM with instructions! {ctx.author.mention}")
+    await ctx.send(f"I sent you a DM with instructions! {ctx.author.mention}. If your privacy settings stops you from accepting DM:s, you can find the commands at: <https://github.com/KazeFX/SushiCatBot>")
     await ctx.author.send(f"**Commands:**\n\n"
                    f"**!help** : Prints this section. :D\n\n"
                    f"**!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.\n\n"

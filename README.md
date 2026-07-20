@@ -18,7 +18,7 @@ For the weather command, you need an API key from https://openweathermap.org/
 
 **Commands:**
 
-* **!help** : Prints a link to this repo.
+* **!help** : Sends the command list in a DM to the user. Also posts a link to the repo in the channel.
 
 * **!loot** : Does a simple MMO loot roll, giving a number from 1 to and including 100.
 
